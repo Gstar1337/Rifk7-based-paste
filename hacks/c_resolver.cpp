@@ -229,22 +229,22 @@ void c_resolver::resolve_shot(resolver::shot& shot)
 		{
 		case resolver_start:
 			info->brute_state = resolver_inverse;
-			info->brute_yaw = -info->brute_yaw;
+			info->brute_yaw = +45.f;
 			logging->debug("BRUTE: START -> INVERSE");
 			break;
 		case resolver_inverse:
 			info->brute_state = resolver_no_desync;
 			logging->debug("BRUTE: INVERSE -> NONE");
-			info->brute_yaw = 0.f;
+			info->brute_yaw = -45.f;
 			break;
 		case resolver_no_desync:
 			info->brute_state = resolver_jitter;
-			info->brute_yaw = std::uniform_int_distribution<int>(0, 1)(rng) ? -120.f : 120.f;
+			info->brute_yaw = -30.f;
 			logging->debug("BRUTE: NONE -> JITTER");
 			break;
 		default:
 		case resolver_jitter:
-			info->brute_yaw = -info->brute_yaw;
+			info->brute_yaw = +30.f;
 			logging->debug("BRUTE: JITTER -> JITTER");
 			break;
 		}
