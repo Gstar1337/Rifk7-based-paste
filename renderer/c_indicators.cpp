@@ -139,8 +139,8 @@ void c_indicators::draw_antiaim()
 	const auto real = deg2rad(yaw - antiaim->get_last_real());
 	const auto fake = deg2rad(yaw - antiaim->get_last_fake());
 
-	draw_arrow(real, c_color::gradient3());
-	draw_arrow(fake, c_color::primary());
+	draw_arrow(real, c_color::primary());
+	draw_arrow(fake, c_color::gradient3());
 }
 
 void c_indicators::draw_progressbar(c_vector2d& position, const char* name, const c_color color1, const c_color color2, const float progress)

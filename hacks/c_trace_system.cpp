@@ -406,7 +406,7 @@ float c_trace_system::scale_damage(c_cs_player* target, float damage, const floa
 		{
 		case hitgroup_head:
 			if (target->has_heavy_armor())
-				damage = (damage * 4.f) * .5f;
+				damage = (damage * 3.5f) * .5f;
 			else
 				damage *= 4.f;
 			break;
@@ -415,7 +415,7 @@ float c_trace_system::scale_damage(c_cs_player* target, float damage, const floa
 			break;
 		case hitgroup_leftleg:
 		case hitgroup_rightleg:
-			damage *= .75f;
+			damage *= .65f;
 			break;
 		default:
 			break;

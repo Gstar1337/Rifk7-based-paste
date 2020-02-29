@@ -395,11 +395,11 @@ void c_antiaim::run(c_cs_player* local, c_user_cmd* cmd, bool& send_packet)
 			cmd->viewangles.x = 88.99f;
 
 			if (left && !right && !back)
-				cmd->viewangles.y =- 90.f;
+				cmd->viewangles.y += 90.f;
 			else if (!left && right && !back)
-				cmd->viewangles.y =+ 90.f;
+				cmd->viewangles.y -= 90.f;
 			else if (!left && !right && back)
-				cmd->viewangles.y =+ 180.f;
+				cmd->viewangles.y += 180.f;
 			else if (!left && !right && !back)
 				cmd->viewangles.y = ideal_yaw;
 
