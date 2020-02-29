@@ -1,0 +1,226 @@
+#include "c_base_combat_weapon.h"
+#include "c_cs_player.h"
+
+char* c_base_combat_weapon::GetGunIcon()
+{
+	int WeaponId = this->get_item_definition();
+	switch (WeaponId)
+	{
+	case WEAPON_KNIFE:
+	case 500:
+	case 505:
+	case 506:
+	case 507:
+	case 508:
+	case 509:
+	case 512:
+	case 514:
+	case 515:
+	case 516:
+		return "]";
+	case WEAPON_DEAGLE:
+		return "A";
+	case WEAPON_ELITE:
+		return "B";
+	case WEAPON_FIVESEVEN:
+		return "C";
+	case WEAPON_GLOCK:
+		return "D";
+	case WEAPON_P2000:
+		return "E";
+	case WEAPON_P250:
+		return "F";
+	case WEAPON_USPS:
+		return "G";
+	case WEAPON_TEC9:
+		return "H";
+	case WEAPON_CZ75:
+		return "I";
+	case WEAPON_REVOLVER:
+		return "J";
+	case WEAPON_MAC10:
+		return "K";
+	case WEAPON_UMP45:
+		return "L";
+	case WEAPON_BIZON:
+		return "M";
+	case WEAPON_MP7:
+		return "N";
+	case WEAPON_MP9: case WEAPON_MP5SD:
+		return "O";
+	case WEAPON_P90:
+		return "P";
+	case WEAPON_GALIL:
+		return "Q";
+	case WEAPON_FAMAS:
+		return "R";
+	case WEAPON_M4A1S:
+		return "S";
+	case WEAPON_M4A4:
+		return "T";
+	case WEAPON_AUG:
+		return "U";
+	case WEAPON_SG553:
+		return "V";
+	case WEAPON_AK47:
+		return "W";
+	case WEAPON_G3SG1:
+		return "X";
+	case WEAPON_SCAR20:
+		return "Y";
+	case WEAPON_AWP:
+		return "Z";
+	case WEAPON_SSG08:
+		return "a";
+	case WEAPON_XM1014:
+		return "b";
+	case WEAPON_SAWEDOFF:
+		return "c";
+	case WEAPON_MAG7:
+		return "d";
+	case WEAPON_NOVA:
+		return "e";
+	case WEAPON_NEGEV:
+		return "f";
+	case WEAPON_M249:
+		return "g";
+	case WEAPON_ZEUS:
+		return "h";
+	case WEAPON_FLASHBANG:
+		return "i";
+	case WEAPON_HEGRENADE:
+		return "j";
+	case WEAPON_SMOKEGRENADE:
+		return "k";
+	case WEAPON_MOLOTOV:
+		return "l";
+	case WEAPON_DECOY:
+		return "m";
+	case WEAPON_INC:
+		return "n";
+	case WEAPON_C4:
+		return "o";
+	default:
+		return " ";
+	}
+}
+
+char* c_base_combat_weapon::get_weapon_name()
+{
+	if (!this)
+		return "UNKNOWN";
+
+	switch (get_item_definition())
+	{
+	case WEAPON_KNIFE_BAYONET:
+		return "BAYONET";
+	case WEAPON_KNIFE_SURVIVAL_BOWIE:
+		return "BOWIE";
+	case WEAPON_KNIFE_BUTTERFLY:
+		return "BUTTERFLY";
+	case WEAPON_KNIFE:
+		return "KNIFE";
+	case WEAPON_KNIFE_FALCHION:
+		return "FALCHION";
+	case WEAPON_KNIFE_FLIP:
+		return "FLIP";
+	case WEAPON_KNIFE_GUT:
+		return "GUT";
+	case WEAPON_KNIFE_KARAMBIT:
+		return "KARAMBIT";
+	case WEAPON_KNIFE_M9_BAYONET:
+		return "M9 BAYONET";
+	case WEAPON_KNIFE_T:
+		return "KNIFE";
+	case WEAPON_KNIFE_TACTICAL:
+		return "HUNTSMAN";
+	case WEAPON_KNIFE_PUSH:
+		return "DAGGERS";
+	case WEAPON_DEAGLE:
+		return "DEAGLE";
+	case WEAPON_ELITE:
+		return "BERRETAS";
+	case WEAPON_FIVESEVEN:
+		return "FIVE-SEVEN";
+	case WEAPON_GLOCK:
+		return "GLOCK";
+	case WEAPON_P2000:
+		return "P2000";
+	case WEAPON_P250:
+		return "P250";
+	case WEAPON_USPS:
+		return "USP-S";
+	case WEAPON_TEC9:
+		return "TEC-9";
+	case WEAPON_REVOLVER:
+		return "REVOLVER";
+	case WEAPON_MAC10:
+		return "MAC-10";
+	case WEAPON_UMP45:
+		return "UMP-45";
+	case WEAPON_BIZON:
+		return "BIZON";
+	case WEAPON_MP7:
+		return "MP-7";
+	case WEAPON_MP5SD:
+		return "MP5-SSD";
+	case WEAPON_MP9:
+		return "MP-9";
+	case WEAPON_P90:
+		return "P-90";
+	case WEAPON_GALIL:
+		return "GALIL";
+	case WEAPON_FAMAS:
+		return "FAMAS";
+	case WEAPON_M4A1S:
+		return "M4A1-S";
+	case WEAPON_M4A4:
+		return "M4A1";
+	case WEAPON_AUG:
+		return "AUG";
+	case WEAPON_SG553:
+		return "SG556";
+	case WEAPON_AK47:
+		return "AK 47";
+	case WEAPON_G3SG1:
+		return "G3SG1";
+	case WEAPON_SCAR20:
+		return "SCAR-20";
+	case WEAPON_AWP:
+		return "AWP";
+	case WEAPON_SSG08:
+		return "SCOUT";
+	case WEAPON_XM1014:
+		return "XM1014";
+	case WEAPON_SAWEDOFF:
+		return "SAWED-OFF";
+	case WEAPON_MAG7:
+		return "MAG-7";
+	case WEAPON_NOVA:
+		return "NOVA";
+	case WEAPON_NEGEV:
+		return "NEGEV";
+	case WEAPON_M249:
+		return "M249";
+	case WEAPON_ZEUS:
+		return "ZEUS";
+	case WEAPON_FLASHBANG:
+		return "FLASHBANG";
+	case WEAPON_HEGRENADE:
+		return "HE-GRENADE";
+	case WEAPON_SMOKEGRENADE:
+		return "SMOKE";
+	case WEAPON_MOLOTOV:
+		return "FIRE-BOMB";
+	case WEAPON_DECOY:
+		return "DECOY";
+	case WEAPON_INC:
+		return "FIRE-BOMB";
+	case WEAPON_C4:
+		return "BOMB";
+	case WEAPON_CZ75:
+		return "CZ-75A";
+	default:
+		return "UNKNOWN";
+	}
+}
